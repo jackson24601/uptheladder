@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Up the Ladder</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E🌳%3C/text%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="sky" aria-hidden="true">
+      <div class="sun"></div>
+      <div class="cloud cloud-a"></div>
+      <div class="cloud cloud-b"></div>
+      <div class="cloud cloud-c"></div>
+    </div>
+
+    <div id="setup-screen" class="screen setup-screen">
+      <div class="setup-card">
+        <p class="eyebrow">Classroom review race</p>
+        <h1>Up the Ladder</h1>
+        <p class="lede">
+          Pick your teams, then race up the trees. First to ten rungs wins — but
+          every three minutes the wind may knock someone down.
+        </p>
+
+        <fieldset class="team-count">
+          <legend>How many teams?</legend>
+          <div class="count-row" role="radiogroup" aria-label="Number of teams">
+            <button type="button" class="count-btn selected" data-count="2">2</button>
+            <button type="button" class="count-btn" data-count="3">3</button>
+            <button type="button" class="count-btn" data-count="4">4</button>
+            <button type="button" class="count-btn" data-count="5">5</button>
+            <button type="button" class="count-btn" data-count="6">6</button>
+          </div>
+        </fieldset>
+
+        <div class="name-block">
+          <h2>Name the teams</h2>
+          <div id="name-fields" class="name-fields"></div>
+        </div>
+
+        <button type="button" id="start-btn" class="primary-btn">Start the climb</button>
+      </div>
+    </div>
+
+    <div id="game-screen" class="screen game-screen hidden" hidden>
+      <header class="hud">
+        <div class="hud-brand">
+          <span class="hud-mark" aria-hidden="true">🌳</span>
+          <div>
+            <h1>Up the Ladder</h1>
+            <p>First to the top of the tree wins</p>
+          </div>
+        </div>
+        <div class="hud-center">
+          <div class="wind-meter" aria-live="polite">
+            <span class="wind-label">Next gust</span>
+            <strong id="wind-countdown">3:00</strong>
+          </div>
+        </div>
+        <div class="hud-actions">
+          <button type="button" id="mute-btn" class="ghost-btn" aria-pressed="false">
+            Sound on
+          </button>
+          <button type="button" id="fullscreen-btn" class="ghost-btn">Fullscreen</button>
+          <button type="button" id="new-game-btn" class="ghost-btn">New game</button>
+        </div>
+      </header>
+
+      <main id="forest" class="forest" aria-label="Team trees"></main>
+      <div class="ground" aria-hidden="true"></div>
+    </div>
+
+    <div id="wind-banner" class="wind-banner" hidden role="status"></div>
+    <div id="leaf-layer" class="leaf-layer" aria-hidden="true"></div>
+
+    <div id="win-overlay" class="overlay hidden" hidden>
+      <div class="win-card">
+        <p class="eyebrow">We have a winner</p>
+        <h2 id="win-title">Team wins!</h2>
+        <p id="win-copy">They climbed all ten rungs and reached the top of the tree.</p>
+        <button type="button" id="play-again-btn" class="primary-btn">Play again</button>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
